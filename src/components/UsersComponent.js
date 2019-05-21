@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import * as userActions from '../actions/userActions';
 import SelectUsers from "./SelectUsers";
+import UserDetails from "./UserDetails";
 
 class UsersComponent extends Component {
 
@@ -32,6 +33,10 @@ class UsersComponent extends Component {
                 <div>
                     <h3>Select A User</h3>
                     <SelectUsers/>
+                </div>
+                <div>
+                    <h3>Selected User Details</h3>
+                    <UserDetails/>
                 </div>
             </div>
         )

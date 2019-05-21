@@ -4,7 +4,8 @@ const initialState = {
     data: [],
     loaded: false,
     loading: false,
-    error: false
+    error: false,
+    selectedUser: {}
 };
 
 const userReducer = (state = initialState, action) => {
@@ -27,6 +28,11 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 error: true
+            };
+        case USER_ACTION_TYPES.SELECT_USER:
+            return {
+                ...state,
+                selectedUser: action.payload
             };
         default:
             return state;

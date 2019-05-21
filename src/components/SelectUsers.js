@@ -39,7 +39,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getUsers: () => dispatch(userActions.getAllUsers())
+        getUsers: () => dispatch(userActions.getAllUsers()),
+        selectUser: (user) => dispatch(userActions.selectUser(user)),
     }
 }
 
