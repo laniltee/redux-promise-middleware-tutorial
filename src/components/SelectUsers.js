@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import * as userActions from '../actions/userActions';
-import SelectUsers from "./SelectUsers";
+import {WiredCombo} from "wired-combo";
+import {WiredSpinner} from "wired-spinner"
+
 
 class UsersComponent extends Component {
 
@@ -15,24 +17,15 @@ class UsersComponent extends Component {
 
     render() {
         const users = this.props.users.data.map(user =>
-            <li key={user.id}>{user.name}</li>
+            <wired-item value={user.id} key={user.id}>{user.name}</wired-item>
         );
         return (
             <div>
-                <button onClick={() => this.props.getUsers()}>Load All Users</button>
-                <p>Loaded Status: {this.props.users.loaded ? 'Loaded' : 'Not Loaded'}</p>
-                <p>Loading Status: {this.props.users.loading ? 'Loading' : 'Not Loading'}</p>
-                <p>Error Status: {this.props.users.error ? 'Error' : 'No Error'}</p>
-                <div>
-                    <h3>All Users</h3>
-                    <ol>
-                        {users}
-                    </ol>
-                </div>
-                <div>
-                    <h3>Select A User</h3>
-                    <SelectUsers/>
-                </div>
+                {this.props.users.loading && <wired-spinner id="sp" spinning duration="1000"/>}
+                <br/>
+                <wired-combo id="combo">
+                    {users}
+                </wired-combo>
             </div>
         )
     }

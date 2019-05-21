@@ -5,7 +5,7 @@ import UsersComponent from "./components/UsersComponent";
 
 function App() {
     return (
-        <Provider store={store}>
+        <Provider store={ store }>
             <div className="App">
                 <UsersComponent/>
             </div>
